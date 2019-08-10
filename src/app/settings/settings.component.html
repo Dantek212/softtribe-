@@ -1,0 +1,88 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Settings"></Label>
+</ActionBar>
+
+<StackLayout rows="auto *"  backgroundcolor="#F5F5F5">
+    <!-- <GridLayout row="0" rows="auto auto" backgroundColor="#adadad">
+
+        <Image row="0" width="100%" height="150" stretch="aspectFill" src="~/images/logo.png"></Image>
+
+        <GridLayout row="0" rowSpan="2" rows="auto auto auto" columns="* auto" verticalAlignment="bottom" class="m-t-25">
+            <Image row="0" col="0" src="res://icon" height="40" width="40" class="m-l-15" horizontalAlignment="left" borderWidth="1"
+                borderColor="white"></Image>
+            <Label row="1" col="0" text="Username" class="text-left p-l-15" textWrap="true"></Label>
+            <Label row="2" col="0" text={{profile}} class="text-left p-l-15" textWrap="true"></Label>
+            <Button row="0" col="1" text="Logout"  class="btn btn-outline btn-rounded-sm btn-active" (tap)="followTap()" ></Button>
+
+        </GridLayout>
+    </GridLayout> -->
+    <StackLayout class="sideUser"  >
+        <StackLayout class="sideTitleStackLayout">
+            <!-- <Image  class="fa" src={{myimg}} stretch= "none" horizontalAlignment = "center"></Image> -->
+            <Image [src]="imageSrc" *ngIf="isSingleMode" size="160" stretch="aspectFill" horizontalAlignment = "center" borderradius= "100%" width="125" height="150"></Image>
+
+        </StackLayout>
+        <StackLayout class="username">
+            <!-- <Label text="User Fullname" class="sideUserId" textalign="center"></!-->
+            <Label text={{profile}} class="username"  ></Label>
+
+        </StackLayout>
+     </StackLayout>
+    <StackLayout class="form">
+
+        <Label text="Email" class="usname" ></Label>
+        <TextField #emailtxt hint={{profile}} secure="false" returnKeyType="done" autocorrect="false"
+                   keyboardType="email" maxLength="30" (focus)="onFocus($event)" (blur)="onBlur($event)"  class="input input-border" paddingtop="5" >
+        </TextField>
+        <Label text="Password" class="psword"></Label>
+        <TextField #passwordtxt secure="true"  autocorrect="false" KeyboardType="password"
+                   minLength="8" (focus)="onFocus($event)" (blur)="onBlur($event)"  class="input input-border" paddingtop="5" >
+        </TextField>
+        <Label text="Confirm" class="psword"></Label>
+        <TextField #confirmtxt secure="true"  autocorrect="false" KeyboardType="password"
+                   minLength="8" (focus)="onFocus($event)" (blur)="onBlur($event)"  class="input input-border" paddingtop="5" >
+        </TextField>
+
+
+        <GridLayout  columns="auto, auto" rows= "auto, auto" margintop="20">
+        <Label text="Select Profile Image:" row="0" col="0" verticalAlignment="center"></Label>
+        <Button text="Choose file" (tap)= "onSelectSingleTap()" row="0" col="1" marginleft="30" ></Button>
+        </GridLayout>
+
+        <Button text="Update" class="btn btn-primary" margintop= "20"  backgroundcolor= "#123764" (tap)="onUpdateButtonTap(emailtxt.text, passwordtxt.text, confirmtxt.text)"></Button>
+    </StackLayout>
+
+    <!-- <TabView row="1" #tabView class="tab-view">
+        <GridLayout *tabItem="{title: 'Profile'}">
+
+        </GridLayout>
+        <GridLayout *tabItem="{title: 'Update Profile'}">
+                <ScrollView>
+                        <StackLayout class="page p-t-15">
+
+                            <TextField #usernametxt class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Name" autocorrect="false" autocapitalization="none"></TextField>
+                            <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalization="none"></TextField>
+                            <TextField #passwordtxt class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Password" secure="true" autocorrect="false" autocapitalization="none"></TextField>
+
+                            <Button class="btn btn-primary" text="SIGN UP" (tap)="onUpdateButtonTap(usernametxt.text, passwordtxt.text)" ></Button>
+
+                        </StackLayout>
+                    </ScrollView>
+        </GridLayout>
+
+    </TabView> -->
+
+</StackLayout>

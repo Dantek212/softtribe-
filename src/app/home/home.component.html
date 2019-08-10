@@ -1,0 +1,75 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<StackLayout class="page-content">
+        <GridLayout  rows="auto, auto" columns="auto, auto" padding="20,20,20,20">
+                <StackLayout class="card1" row="0" col="0" >
+                        <!-- <GridLayout rows="auto, auto" columns="auto, auto">
+                            <StackLayout verticalAlignment="center" row="0" col="0">
+                                <label text="&#xf007;" class="page-icon fa" color="#123764" fontsize="30" ></label>
+                            </StackLayout>
+                            <StackLayout row="0" col="1" marginleft="15" height="80" verticalAlignment="center" fontWeight="Bold">
+
+                                <Label class="card-1label-1" text="Total"></Label>
+                                <Label class="card-1label-2" text="20 days"></Label>
+
+                            </StackLayout>
+                        </GridLayout> -->
+                        <StackLayout horizontalAlignment="center" >
+                                <Label class="card-1label-1" text="Total" fontWeight="Bold"></Label>
+                        </StackLayout>
+                            <StackLayout horizontalAlignment="center"   >
+                                <label text="&#xf007;" class="page-icon fa" color="#123764" fontsize="30" ></label>
+
+                                <Label class="card-1label-2" text="20 days" fontWeight="Bold"></Label>
+
+                            </StackLayout>
+                </StackLayout>
+                <StackLayout class= "card2" row="0" col="1">
+                        <!-- <GridLayout rows="auto, auto" columns="auto, auto">
+                                <StackLayout verticalAlignment="center" row="0" col="0">
+                                    <label text="&#xf007;" class="page-icon fa" color="#123764" fontsize="30" paddingLeft="5"></label>
+                                </StackLayout>
+                                <StackLayout row="0" col="1" marginleft="15" height="80" verticalAlignment="center" fontWeight="Bold">
+
+                                    <Label class="card-1label-1" text="Total" horizontalAlignment="center"></Label>
+                                    <Label class="card-1label-2" text="20 days"></Label>
+
+                                </StackLayout>
+                            </GridLayout> -->
+                            <StackLayout horizontalAlignment="center" >
+                                    <label text="&#xf007;" class="page-icon fa" color="#123764" fontsize="30" paddingLeft="5"></label>
+                                </StackLayout>
+                                <StackLayout horizontalAlignment="center">
+                                     <Label class="card-1label-1" text="Total Attendance" ></Label>
+
+                                    <Label class="card-1label-2" text="20 days"></Label>
+
+                                </StackLayout>
+                </StackLayout>
+
+
+            </GridLayout>
+
+            <Page xmlns:mdc="nativescript-material-cardview">
+                    <StackLayout horizontalAlignment="center">
+                        <mdc:CardView width="100" height="100"/>
+                       <MDCardView rippleColor="blue"  width="100" height="100"></MDCardView>
+                   </StackLayout>
+                </Page>
+
+</StackLayout>

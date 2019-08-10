@@ -1,0 +1,31 @@
+<sd: RadSideDrawer [drawerTransition]="sideDrawerTransition" gesturesEnabled="false">
+
+<FlexboxLayout class="page">
+
+    <StackLayout class = "wrapper_head">
+
+    </StackLayout>
+    <StackLayout class="wrapper_body"  verticalAlignment="center" >
+
+
+    <StackLayout class = "wrapper_body_logo">
+            <Image src="res://logo" stretch="none" class="logo" horinzontalAlignment="center"></Image>
+    </StackLayout>
+    <StackLayout class = "wrapper_body_form">
+        <!-- <Label class="invalid" text= {{errmsg}} ></Label> -->
+        <TextField #emailTxt class="txtfield1"  hint="Email Address" keyboardType="email" autocorrect="false" autocapitalization="none"
+           ></TextField>
+
+        <TextField #passwordTxt class="txtfield2" color="#000" hint="Password" secure="true" autocorrect="false" autocapitalization="none"
+           ></TextField>
+
+          <!-- <Label class="forgot" text="Forgot password?" (tap)="onForgotPasswordTap()"></Label> -->
+
+
+
+          <Button class="btn  btn-primary" (tap)="showAlert(emailTxt.text, passwordTxt.text)" text="SIGN IN"  margintop= "70" width= "150"  backgroundcolor= "#123764"></Button>
+
+
+    </StackLayout>
+    </StackLayout>
+</FlexboxLayout>
